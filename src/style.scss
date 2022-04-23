@@ -1,0 +1,177 @@
+/// Variables
+
+$Very-dark-blue: hsl(233, 47%, 7%);
+$Dark-desaturated-blue: hsl(244, 38%, 16%);
+$Soft-violet: #aa5cdb;
+$White: hsl(0, 0%, 100%);
+$Slightly-transparent-white-paragraph: hsla(0, 0%, 100%, 0.75);
+$Slightly-transparent-white-headings: hsla(0, 0%, 100%, 0.6);
+
+//////////////////////////////////////////////////////////////
+///Responsive function
+@mixin respond($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    } //900px
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/// Resets
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  transition: all 0.3s;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 50%; // 1rem = 8px, 8px/16px = 50%
+
+  @include respond(desktop) {
+    //  600 < width?
+    font-size: 62.5%; //1 rem = 10px, 10/16 = 62.5%
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+/// Typography
+
+@font-face {
+  font-family: "iran-sans";
+  src: url("/src/fonts/IRANSansWeb.ttf");
+}
+@font-face {
+  font-family: "IRANSansWeb(FaNum)";
+  src: url("/src/fonts/IRANSansWeb\(FaNum\).ttf");
+}
+
+body {
+  font-family: "iran-sans", sans-serif;
+  background-color: $Very-dark-blue;
+  color: $Slightly-transparent-white-paragraph;
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+//////////main styles
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+.fa-num {
+  font-family: "IRANSansWeb(FaNum)";
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 33rem;
+  border-radius: 0.6rem;
+  background-color: $Dark-desaturated-blue;
+  overflow: hidden;
+  @include respond(desktop) {
+    flex-direction: row-reverse;
+    max-width: 90rem;
+  }
+
+  .card-image-container {
+    position: relative;
+
+    // background-image: linear-gradient(
+    //   rgba($Soft-violet, 0.5),
+    //   rgba($Soft-violet, 0.5)
+    // );
+    .card-image {
+      display: block;
+      width: 100%;
+    }
+    picture::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(#400074, 0.65);
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 3rem;
+    gap: 2rem;
+    @include respond(desktop) {
+      text-align: right;
+      padding: 3rem 5rem;
+    }
+
+    h5 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 4rem;
+      @include respond(desktop) {
+        max-width: 80%;
+        align-self: flex-start;
+      }
+
+      span {
+        color: $Soft-violet;
+
+        @include respond(desktop) {
+          &::before {
+            content: "\a";
+            white-space: pre;
+          }
+        }
+      }
+    }
+
+    p {
+      color: rgba(#fff, 0.5);
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include respond(desktop) {
+        align-self: stretch;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .stat-number {
+          font-weight: 700;
+          font-size: 1.8rem;
+        }
+
+        .stat-caption {
+          color: rgba(#fff, 0.5);
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}

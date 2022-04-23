@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="src/style.scss" />
+    <title>Frontend Mentor | Stats preview card</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-image-container">
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="src/images/image-header-mobile.jpg"
+            />
+            <img
+              class="card-image"
+              src="src/images/image-header-desktop.jpg"
+              alt="Happy working in office"
+            />
+          </picture>
+        </div>
+        <div class="card-container">
+          <h5>
+            اطلاعاتی بدست آورید که به <span>رشد کسب و کار</span> شما کمک می کند
+          </h5>
+          <p>
+            مزایای تجزیه و تحلیل داده ها را درک کنید و در مورد درآمد، تجربه
+            مشتری و کارایی کلی تصمیمات بهتری بگیرید.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong class="stat-number fa-num">10k+</strong>
+              <p class="stat-caption">شرکت فعال</p>
+            </div>
+            <div class="stat">
+              <strong class="stat-number fa-num">314</strong>
+              <p class="stat-caption">قالب آماده</p>
+            </div>
+            <div class="stat">
+              <strong class="stat-number fa-num">12m+</strong>
+              <p class="stat-caption">جست و جوی کلمات</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
